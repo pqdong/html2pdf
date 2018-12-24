@@ -29,7 +29,7 @@
   "dependencies": {
     "es6-promise": "^4.2.5",
     "html2canvas": "^1.0.0-alpha.12",
-    "jspdf": "^1.4.1"
+    "jspdf": "https://github.com/pqdong/canvg/tarball/2f0b5737cb02c40801afdf2a4b9a489197b36e8c"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
