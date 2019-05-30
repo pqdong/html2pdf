@@ -1,6 +1,6 @@
 /**
  * html2pdf.js v0.9.1
- * Copyright (c) 2018 Erik Koopmans
+ * Copyright (c) 2019 Erik Koopmans
  * Released under the MIT License.
  */
 import 'es6-promise/auto';
