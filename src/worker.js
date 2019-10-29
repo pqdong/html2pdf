@@ -1,6 +1,8 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { objType, createElement, cloneNode, toPx } from './utils.js';
+import es6promise from 'es6-promise';
+var Promise = es6promise.Promise;
 
 /* ----- CONSTRUCTOR ----- */
 
@@ -176,7 +178,6 @@ Worker.prototype.toPdf = function toPdf() {
     var opt = this.opt;
 
     // Calculate the number of pages.
-    var ctx = canvas.getContext('2d');
     var pxFullHeight = canvas.height;
     var pxPageHeight = Math.floor(canvas.width * this.prop.pageSize.inner.ratio);
     var nPages = Math.ceil(pxFullHeight / pxPageHeight);
@@ -195,7 +196,7 @@ Worker.prototype.toPdf = function toPdf() {
 
     for (var page=0; page<nPages; page++) {
       // Trim the final page to reduce file size.
-      if (page === nPages-1) {
+      if (page === nPages-1 && pxFullHeight % pxPageHeight !== 0) {
         pageCanvas.height = pxFullHeight % pxPageHeight;
         pageHeight = pageCanvas.height * this.prop.pageSize.inner.width / pageCanvas.width;
       }
